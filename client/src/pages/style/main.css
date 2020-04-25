@@ -1,0 +1,102 @@
+
+/* For demo */
+.ant-carousel .slick-slide {
+    text-align: center;
+    /*height: 100vh;*/
+    line-height: 0px;
+    /*background: #364d79;*/
+    overflow: hidden;
+    width: 100%;
+}
+.slick-list{
+    width: 100%;
+}
+.carousel-father{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.ant-carousel .slick-slide img {
+    /*height: 100vh;*/
+    width: 100%!important;
+    margin: auto;
+}
+.block-background{
+    background: #f9f7f7;
+    padding: 50px 0;
+    width: 100%;
+    border-bottom: 2px solid #fafafa;
+}
+.course-item{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    /*padding: 10px;*/
+}
+.block{
+    padding: 50px 0;
+}
+.course-item img, .block-background img, .block img{
+    width: 100%;
+}
+.course-item-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    padding: 25px;
+}
+.course-item-content__title{
+    color: #ffffff;
+    font-size: 30px;
+    float: left;
+    margin: 10px;
+}
+.course-item-content__button{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    padding: 20px 0px;
+    color: #ffffff;
+    font-size: 25px;
+    transition: all 1s ease-in-out;
+}
+.course-item-content__button:hover{
+    color: aqua;
+}
+
+
+
+#components-layout-demo-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
+
+.site-layout .site-layout-background {
+    background: #fff;
+}
+
+#components-layout-demo-side .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+}
