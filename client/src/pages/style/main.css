@@ -100,3 +100,25 @@
     background: rgba(255, 255, 255, 0.2);
     margin: 16px;
 }
+img.section__image{
+    width: 100px;
+    float: left;
+}
+.section-item__title{
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.title-section{
+    font-size: 40px;
+    border-bottom: 1px solid #000000;
+    display: inline-block;
+}
+.section-item__description{
+    margin-left: 10px;
+    float: left;
+    width: 80%;
+    display: inline-block;
+}
