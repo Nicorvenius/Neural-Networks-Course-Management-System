@@ -121,4 +121,5 @@ img.section__image{
     float: left;
     width: 80%;
     display: inline-block;
+    font-size: 18px;
 }
