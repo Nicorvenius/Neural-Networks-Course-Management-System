@@ -114,6 +114,7 @@ export default class CreateCourse extends Component {
                         <input style={{display: 'block'}} type="file" onChange={this.fileChange} name="file"/>
                     </label>
                     <input type="submit" value="Create Course!"/>
+
                 </form>
                 <NotificationContainer/>
             </Content>

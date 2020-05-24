@@ -1,5 +1,6 @@
 const {Schema, model, Types} = require('mongoose');
 
+
 const schema = new Schema({
     title:{type: String, default: ""},
     content:{type: String, default: ""},
