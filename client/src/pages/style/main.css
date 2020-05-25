@@ -1,4 +1,6 @@
-
+label{
+    display: block;
+}
 /* For demo */
 .ant-carousel .slick-slide {
     text-align: center;

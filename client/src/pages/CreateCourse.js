@@ -17,6 +17,9 @@ export default class CreateCourse extends Component {
             title: "",
             content: "",
             photo: "",
+            description: '',
+            thumbnail: '',
+
         };
         this.push = this.push.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -52,8 +55,8 @@ export default class CreateCourse extends Component {
         })
     }
 
-    handleChange(event) {
-        this.setState({title: event.target.value})
+    handleChange(event, target) {
+        this.setState({[target]: event.target.value})
     }
 
     handleChangeContent(content, editor) {
@@ -86,9 +89,12 @@ export default class CreateCourse extends Component {
             <Content style={{margin: '0 16px'}}>
                 <form onSubmit={this.push}>
                     <label>Course title:
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                        <input type="text" name="name"  onChange={(e) => this.handleChange(e, 'title')}/>
                     </label>
                     <label>Course description:
+                        <input type="text" name="name" onChange={(e) => this.handleChange(e, 'description')}/>
+                    </label>
+                    <label>Section content:
                         {/*<textarea value={this.state.content} onChange={this.handleChangeContent} />*/}
                         <Editor
                             initialValue="<p>This is the initial content of the editor</p>"
@@ -110,8 +116,17 @@ export default class CreateCourse extends Component {
                             onEditorChange={this.handleChangeContent}
                         />
                     </label>
-                    <label htmlFor="">Upload Course Image
-                        <input style={{display: 'block'}} type="file" onChange={this.fileChange} name="file"/>
+                    <label>Url to video:
+                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    </label>
+                    <label htmlFor="">Upload Course Thumbnail
+                        <input style={{display: 'block'}} type="file" onChange={(e) => this.fileChange(e, 'thumbnail')}  name="Thumbnail"/>
+                    </label>
+                    <label htmlFor="">Upload Course Banner
+                        <input style={{display: 'block'}} type="file" onChange={(e) => this.fileChange(e, 'banner')}  name="banner"/>
+                    </label>
+                    <label htmlFor="">Upload Course section image
+                        <input style={{display: 'block'}} type="file" onChange={(e) => this.fileChange(e, 'section_image')} name="section_image"/>
                     </label>
                     <input type="submit" value="Create Course!"/>
 
