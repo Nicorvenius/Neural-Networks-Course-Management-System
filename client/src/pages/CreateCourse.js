@@ -6,7 +6,7 @@ import {Editor} from '@tinymce/tinymce-react';
 import {Layout} from "antd";
 
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content } = Layout;
 export default class CreateCourse extends Component {
 
     constructor() {
@@ -31,11 +31,6 @@ export default class CreateCourse extends Component {
         this.fileChange = this.fileChange.bind(this)
     }
 
-    componentDidMount() {
-        // this.getCategory();
-    }
-
-
     fileChange(e, target) {
         console.log(e.target.files[0])
         this.setState({[target]: e.target.files[0]})
@@ -48,7 +43,6 @@ export default class CreateCourse extends Component {
             Authorization: `Bearer ${this.props.token}`
         }, true).then((result) => {
             this.setState({[key]: result.photo})
-            console.log(this.state[key])
             NotificationManager.success('Success', 'Image success upload')
         }).catch((e) => {
             NotificationManager.error(e.message.toString(), 'Error')
@@ -60,7 +54,6 @@ export default class CreateCourse extends Component {
     }
 
     handleChangeContent(content, editor) {
-        console.log(content)
         this.setState({content: content})
     }
 
