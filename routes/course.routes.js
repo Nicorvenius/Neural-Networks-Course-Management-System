@@ -11,6 +11,7 @@ const upload = multer({dest: 'uploads/'})
 
 router.post('/upload', auth, upload.single('file'), async (req, res) => {
     try {
+        console.log(req.file)
         res.status(201).json({message: 'ok', photo: req.file.filename})
     } catch (e) {
         res.status(400).json({message: e.message});
@@ -23,6 +24,7 @@ router.post('/upload', auth, upload.single('file'), async (req, res) => {
 
 router.post('/create', auth, async (req, res) => {
     try{
+        console.log(req.body)
         const post = new Course(req.body);
 
         await post.save()
