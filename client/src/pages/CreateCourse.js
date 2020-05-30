@@ -22,7 +22,8 @@ export default class CreateCourse extends Component {
             thumbnail: '',
             thumbnail_image: '',
             banner_image: '',
-            section_image_image: ''
+            section_image_image: '',
+            videoID: '',
         };
         this.push = this.push.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -32,7 +33,6 @@ export default class CreateCourse extends Component {
     }
 
     fileChange(e, target) {
-        console.log(e.target.files[0])
         this.setState({[target]: e.target.files[0]})
     }
 
@@ -64,11 +64,9 @@ export default class CreateCourse extends Component {
             await this.uploadPhoto(this.state.banner_image, 'banner');
             await this.uploadPhoto(this.state.section_image_image, 'section_image');
             await this.coursePublication();
-            event.preventDefault();
         }catch (e) {
-            event.preventDefault();
+
         }
-        event.preventDefault();
     }
 
     coursePublication = async () => {
@@ -121,8 +119,8 @@ export default class CreateCourse extends Component {
                             onEditorChange={this.handleChangeContent}
                         />
                     </label>
-                    <label>Url to video:
-                        <input type="text" name="name" value={this.state.name} onChange={this.handleChange}/>
+                    <label>Id Youtube video:
+                        <input type="text" name="name" value={this.state.name} onChange={(e) => this.handleChange(e, 'videoID')}/>
                     </label>
                     <label htmlFor="">Upload Course Thumbnail
                         <input style={{display: 'block'}} type="file" onChange={(e) => this.fileChange(e, 'thumbnail_image')}  name="Thumbnail"/>
