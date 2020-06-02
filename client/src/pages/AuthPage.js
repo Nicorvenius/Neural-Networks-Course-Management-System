@@ -29,12 +29,6 @@ export default class AuthPage extends Component {
         this.getItem();
     }
 
-    changeHandler = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
     getItem = async () => {
         await this.httpRequest.request('/api/course/', 'GET', null, {
             Authorization: `Bearer ${this.props.token}`
@@ -44,17 +38,6 @@ export default class AuthPage extends Component {
                 list: result
             })
         })
-    }
-
-    registerHandler = async () => {
-        try {
-            this.data = await this.httpRequest.request('api/auth/register', 'POST', {...this.state})
-            if (this.data.message) {
-                this.message.sendMessange(this.data.message)
-            }
-        } catch (e) {
-            this.message.sendMessange(e)
-        }
     }
 
     render() {

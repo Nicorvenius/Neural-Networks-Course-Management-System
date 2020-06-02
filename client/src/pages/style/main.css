@@ -1,4 +1,6 @@
-
+label{
+    display: block;
+}
 /* For demo */
 .ant-carousel .slick-slide {
     text-align: center;
@@ -122,4 +124,58 @@ img.section__image{
     width: 80%;
     display: inline-block;
     font-size: 18px;
+}
+.banner{
+    height: 100vh;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.banner img{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+.banner-content{
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%,-50%);
+    text-align: right;
+}
+.banner-content__title{
+    font-size: 100px;
+    margin: 0;
+}
+.banner-content__description{
+    font-size: 30px;
+}
+.section{
+    height: 100vh;
+}
+.video{
+    text-align: center;
+}
+.section-course{
+    padding: 20px;
+    min-height: 100vh;
+}
+.section img{
+    width: 100%;
+}
+.section-course img{
+    width: 100%;
+}
+.section__item{
+    width: 50%;
+    float: left;
+}
+.section__item__content{
+    width: 100%;
+    height: 500px;
+    overflow-y: scroll;
+
+}
+.Container{
+    padding: 0px 100px;
 }

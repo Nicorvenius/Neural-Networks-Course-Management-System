@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { withRouter } from "react-router";
 import {Link} from "react-router-dom";
 import useHttp from "../class/useHttpClass";
+import YouTube from 'react-youtube';
 
 class ReadCourse extends Component {
 
@@ -25,6 +26,7 @@ class ReadCourse extends Component {
         await this.httpRequest.request(`/api/course/${this.state.id}`, 'POST', {userId: this.props.userId}, {
             Authorization: `Bearer ${this.props.token}`
         }).then((result) => {
+            console.log(result)
             this.setState({
                 data: result,
                 isReady: true
@@ -33,6 +35,15 @@ class ReadCourse extends Component {
     }
     render() {
         const {data} = this.state;
+
+        const opts = {
+            height: '780',
+            width: '1080',
+            playerVars: {
+                // https://developers.google.com/youtube/player_parameters
+
+            },
+        };
 
         let photoUrl = "../api/photo/default"
         console.log(this.state.data.photo)
@@ -44,15 +55,36 @@ class ReadCourse extends Component {
         if (this.state.isReady === true){
             dates = (
                 <div>
-                    <img src={photoUrl} alt=""/>
-                    <h1>{data.title}</h1>
-                    <h6>Author: {data.userId.email}</h6>
+                    <div className="banner">
+                        <img src={"../api/photo/" + data.banner} alt=""/>
+                        <div className="banner-content">
+                            <h1 className="banner-content__title">{data.title}</h1>
+                            <p className="banner-content__description">{data.description}</p>
+                        </div>
+                    </div>
+                    <div className="section-course">
+                        <div className="section__item">
+                            <img src={"../api/photo/" + data.section_image} alt=""/>
+                        </div>
+                        <div className="section__item">
+                            <div className="section__item__content">
+                                <div className="Container" dangerouslySetInnerHTML={{__html: data.content}}></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 className="title-section">Видео</h3>
+                    <div className="video">
+                        <YouTube videoId={data.videoID} opts={opts} onReady={this._onReady} style={{textAlign: 'center'}} />
+                    </div>
                     <Link to={`/edit/${data._id}`}>Edit</Link>
-                    <div className="Container" dangerouslySetInnerHTML={{__html: data.content}}></div>
                 </div>
             )
         }
         return dates
+    }
+    _onReady(event) {
+        // access to player in all event handlers via event.target
+        event.target.pauseVideo();
     }
 }
 export default withRouter(ReadCourse);

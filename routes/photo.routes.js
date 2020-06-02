@@ -14,8 +14,6 @@ router.get('/:id', function (req, res) {
 router.post('/upload/:id', auth, upload.single('file'), async (req, res) => {
     try {
         const uploadPhoto = await User.findById(req.params.id)
-        console.log(uploadPhoto);
-        console.log(req.file)
         uploadPhoto.photo = req.file.filename;
         await uploadPhoto.save()
         res.status(201).json({message: 'ok'})
