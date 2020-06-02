@@ -127,18 +127,21 @@ img.section__image{
 }
 .banner{
     height: 100vh;
-    display: inline-block;
+    display: block;
     position: relative;
     overflow: hidden;
 }
 .banner img{
     width: 100%;
+    height: 100vh;
+    position: absolute;
 }
 .banner-content{
     position: absolute;
     top: 50%;
     right: 0%;
-    transform: translate(-50%,-50%);
+    transform: translate(0%,-50%);
+    text-align: right;
 }
 .banner-content__title{
     font-size: 100px;
@@ -150,7 +153,17 @@ img.section__image{
 .section{
     height: 100vh;
 }
+.video{
+    text-align: center;
+}
+.section-course{
+    padding: 20px;
+    min-height: 100vh;
+}
 .section img{
+    width: 100%;
+}
+.section-course img{
     width: 100%;
 }
 .section__item{

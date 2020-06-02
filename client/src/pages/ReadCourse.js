@@ -41,7 +41,7 @@ class ReadCourse extends Component {
             width: '1080',
             playerVars: {
                 // https://developers.google.com/youtube/player_parameters
-                autoplay: 1,
+
             },
         };
 
@@ -62,7 +62,7 @@ class ReadCourse extends Component {
                             <p className="banner-content__description">{data.description}</p>
                         </div>
                     </div>
-                    <div className="section">
+                    <div className="section-course">
                         <div className="section__item">
                             <img src={"../api/photo/" + data.section_image} alt=""/>
                         </div>
@@ -73,7 +73,9 @@ class ReadCourse extends Component {
                         </div>
                     </div>
                     <h3 className="title-section">Видео</h3>
-                    <YouTube videoId={data.videoID} opts={opts} onReady={this._onReady} />
+                    <div className="video">
+                        <YouTube videoId={data.videoID} opts={opts} onReady={this._onReady} style={{textAlign: 'center'}} />
+                    </div>
                     <Link to={`/edit/${data._id}`}>Edit</Link>
                 </div>
             )

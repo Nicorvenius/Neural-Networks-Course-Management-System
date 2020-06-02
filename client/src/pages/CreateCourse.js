@@ -70,13 +70,14 @@ export default class CreateCourse extends Component {
     }
 
     coursePublication = async () => {
-        const {title, content, description, thumbnail, section_image, banner} = this.state;
+        const {title, content, description, thumbnail, section_image, banner, videoID} = this.state;
         this.data = await this.httpRequest.request('/api/course/create', 'POST', {
             title,
             content,
             description,
             photo: thumbnail,
             section_image,
+            videoID,
             banner,
             userId: this.props.userId,
         }, {
